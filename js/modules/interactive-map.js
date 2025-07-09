@@ -92,6 +92,14 @@ function initializeInteractiveMap(container) {
       if (groupId) {
         highlightGroupById(groupId);
       }
+
+      const residencesSection = document.getElementById('residences');
+      if (window.innerWidth < 768 && residencesSection) {
+        residencesSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
     });
   });
 
@@ -112,6 +120,14 @@ function initializeInteractiveMap(container) {
 
       submodel.classList.toggle('is-open');
       highlightGroupById(groupId);
+
+      const residencesSection = document.getElementById('residences');
+      if (window.innerWidth < 768 && residencesSection) {
+        residencesSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
     });
   });
 }

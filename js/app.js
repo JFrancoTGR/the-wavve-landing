@@ -1,4 +1,40 @@
 // === CRÍTICO: Header y traducción ===
+
+const hero = document.querySelector('.hero-bg');
+
+if (hero) {
+  console.log('[DEBUG] Hero element found');
+
+  function swapToHighRes() {
+    const highRes = hero.dataset.highres;
+    console.log('[DEBUG] Will load high-res:', highRes);
+
+    const imgHigh = new Image();
+    imgHigh.src = highRes;
+    imgHigh.decoding = 'async';
+
+    imgHigh.onload = function () {
+      console.log('[DEBUG] High-res loaded, swapping...');
+      hero.src = highRes;
+      hero.classList.add('loaded');
+    };
+
+    imgHigh.onerror = function () {
+      console.error('[ERROR] High-res failed to load');
+    };
+  }
+
+  if (hero.complete) {
+    console.log('[DEBUG] Placeholder already complete');
+    swapToHighRes();
+  } else {
+    hero.addEventListener('load', function () {
+      console.log('[DEBUG] Placeholder loaded');
+      swapToHighRes();
+    });
+  }
+}
+
 import {
   handleHeaderOnScroll,
   setupMobileHeaderMenu,
@@ -26,72 +62,8 @@ window.addEventListener('load', () => {
 
   // Swipers
 
-  let scriptsReady = 0;
-
-  function checkAndInit() {
-    if (scriptsReady === 2) {
-      console.log(
-        '[LazyLoad] Swiper & GLightbox scripts ready, initializing...'
-      );
-      import('./modules/swiper-sliders.js')
-        .then(({ initSlidersAndLightbox }) => initSlidersAndLightbox())
-        .catch(console.error);
-    }
-  }
-
-  const sliderSections = document.querySelectorAll('.swiper');
-
-  const observer = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const swiperStyle = document.createElement('link');
-          swiperStyle.rel = 'stylesheet';
-          swiperStyle.href =
-            'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
-          swiperStyle.onload = () => {
-            const swiperScript = document.createElement('script');
-            swiperScript.src =
-              'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
-            swiperScript.async = true;
-            swiperScript.onload = () => {
-              scriptsReady++;
-              checkAndInit();
-            };
-            document.head.appendChild(swiperScript);
-          };
-          document.head.appendChild(swiperStyle);
-
-          const glightboxStyle = document.createElement('link');
-          glightboxStyle.rel = 'stylesheet';
-          glightboxStyle.href =
-            'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css';
-          glightboxStyle.onload = () => {
-            const glightboxScript = document.createElement('script');
-            glightboxScript.src =
-              'https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js';
-            glightboxScript.async = true;
-            glightboxScript.onload = () => {
-              scriptsReady++;
-              checkAndInit();
-            };
-            document.head.appendChild(glightboxScript);
-          };
-          document.head.appendChild(glightboxStyle);
-          observer.disconnect();
-        }
-      });
-    },
-    { rootMargin: '50px' }
-  );
-
-  sliderSections.forEach((section) => observer.observe(section));
-
-  // Sliders y lightbox
-  import('./modules/sliders.js')
-    .then(({ setupSlider4 }) => {
-      setupSlider4();
-    })
+  import('./modules/swiper-sliders.js')
+    .then(({ initSlidersAndLightbox }) => initSlidersAndLightbox())
     .catch(console.error);
 
   // Video modal

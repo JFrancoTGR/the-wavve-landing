@@ -6,10 +6,6 @@ export function initSlidersAndLightbox() {
     spaceBetween: 15,
     loop: true,
     grabCursor: true,
-    pagination: {
-      el: '.experiences-pagination',
-      clickable: true,
-    },
     navigation: {
       nextEl: '.experiences-next',
       prevEl: '.experiences-prev',
@@ -25,10 +21,6 @@ export function initSlidersAndLightbox() {
     spaceBetween: 15,
     loop: true,
     grabCursor: true,
-    pagination: {
-      el: '.residences-pagination',
-      clickable: true,
-    },
     navigation: {
       nextEl: '.residences-next',
       prevEl: '.residences-prev',
@@ -43,13 +35,34 @@ export function initSlidersAndLightbox() {
     slidesPerView: 1,
     loop: true,
     grabCursor: true,
-    pagination: {
-      el: '.views-pagination',
-      clickable: true,
-    },
     navigation: {
       nextEl: '.views-next',
       prevEl: '.views-prev',
+    },
+  });
+
+  const creativesSwiper = new Swiper('.creatives-swiper', {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    loop: true,
+    grabCursor: true,
+    navigation: {
+      nextEl: '.creatives-next',
+      prevEl: '.creatives-prev',
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+      },
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+      },
     },
   });
 

@@ -24,7 +24,7 @@
     <!-- End Google Tag Manager -->
 
     <!-- Preload Recursos Críticos -->
-    <link rel="preload" as="image" href="assets/img/hero-banner-opt.webp" />
+    <!-- <link rel="preload" as="image" href="assets/img/hero-banner-low.webp" /> -->
 
     <link
       rel="preload"
@@ -60,7 +60,7 @@
     />
 
     <!-- Preload Swiper CSS -->
-    <!-- <link
+    <link
       rel="preload"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       as="style"
@@ -71,10 +71,10 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       />
-    </noscript> -->
+    </noscript>
 
     <!-- Preload GLightbox CSS -->
-    <!-- <link
+    <link
       rel="preload"
       href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
       as="style"
@@ -85,7 +85,7 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
       />
-    </noscript> -->
+    </noscript>
 
     <!-- Local CSS -->
     <link rel="stylesheet" href="css/app.css" />
@@ -229,20 +229,13 @@
     <!-- Hero Section-->
     <section class="hero-banner">
       <img
-        src="assets/img/hero-banner-opt.webp"
-        srcset="
-          assets/img/hero-banner-600.webp   600w,
-          assets/img/hero-banner-900.webp   900w,
-          assets/img/hero-banner-1200.webp 1200w,
-          assets/img/hero-banner-1600.webp 1600w,
-          assets/img/hero-banner-opt.webp  2000w
-        "
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 100vw"
+        src="assets/img/hero-banner-low.webp"
+        data-highres="assets/img/hero-banner.webp"
         alt="Beachfront Condos"
         class="hero-bg"
-        loading="eager"
         decoding="async"
-        fetchpriority="high"
+        fetchpriority="low"
+        loading="eager"
       />
       <div class="hero-content">
         <h1 class="hero-title" data-i18n="hero.title">
@@ -506,7 +499,7 @@
             <a href="#" data-x="30.9" data-y="50.7">
               <span class="map-point-num">1</span>
               <span data-i18n="map.point1" class="map-link-underline"
-                >Indoors Pool</span
+                >Indoor Pool</span
               >
             </a>
             <a href="#" data-x="55.2" data-y="50.0">
@@ -551,7 +544,7 @@
             <a href="#" data-x="53.7" data-y="62.7">
               <span class="map-point-num">8</span>
               <span data-i18n="map.point8" class="map-link-underline"
-                >Pool</span
+                >Exterior Pool</span
               >
             </a>
           </div>
@@ -847,7 +840,7 @@
 
     <div class="custom-nav">
       <button class="custom-prev experiences-prev">◀</button>
-      <div class="swiper-pagination experiences-pagination"></div>
+      <!-- <div class="swiper-pagination experiences-pagination"></div> -->
       <button class="custom-next experiences-next">▶</button>
     </div>
 
@@ -1599,7 +1592,7 @@
     <!-- Custom Nav -->
     <div class="custom-nav">
       <button class="custom-prev residences-prev">◀</button>
-      <div class="swiper-pagination residences-pagination"></div>
+      <!-- <div class="swiper-pagination residences-pagination"></div> -->
       <button class="custom-next residences-next">▶</button>
     </div>
 
@@ -1762,7 +1755,7 @@
     <!-- Bullets y flechas -->
     <div class="custom-nav">
       <button class="custom-prev views-prev">◀</button>
-      <div class="swiper-pagination views-pagination"></div>
+      <!-- <div class="swiper-pagination views-pagination"></div> -->
       <button class="custom-next views-next">▶</button>
     </div>
 
@@ -1778,13 +1771,13 @@
       <h3 class="slider-title-3" data-i18n="creatives.title">
         CREATIVES & CREATORS
       </h3>
-      <div class="custom-slider-4">
-        <div class="slider-4-wrapper" id="slider4">
-          <div class="slide-4">
+
+      <div class="swiper creatives-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
             <img
               src="assets/img/creatives-estrategia-urbana.png"
               alt="Executives from Estrategia Urbana"
-              loading="lazy"
             />
             <div class="overlay-4">
               <h4 data-i18n="creatives.slider.estrategia.title">
@@ -1795,16 +1788,15 @@
                 development of The Wavve with a clear commitment to quality and
                 certainty.
               </p>
-              <a href="https://estrategiaurbana.com.mx/" target="_blank"
-                >estrategiaurbana.com.mx</a
-              >
+              <a href="https://estrategiaurbana.com.mx/" target="_blank">
+                estrategiaurbana.com.mx
+              </a>
             </div>
           </div>
-          <div class="slide-4">
+          <div class="swiper-slide">
             <img
               src="assets/img/creatives-taller-g.png"
               alt="Executives from Taller G"
-              loading="lazy"
             />
             <div class="overlay-4">
               <h4 data-i18n="creatives.slider.taller.title">TALLER G</h4>
@@ -1816,11 +1808,10 @@
               <a href="https://taller-g.com/" target="_blank">taller-g.com</a>
             </div>
           </div>
-          <div class="slide-4">
+          <div class="swiper-slide">
             <img
               src="assets/img/creatives-kalinka-mikel.png"
-              alt="Kalinke Mikel. Creative & Interior Designer"
-              loading="lazy"
+              alt="Kalinka Mikel. Creative & Interior Designer"
             />
             <div class="overlay-4">
               <h4 data-i18n="creatives.slider.kalinka.title">
@@ -1830,16 +1821,15 @@
                 Kalinka Mikel Studio created warm, contemporary interiors where
                 textures, light and materiality elevate the everyday experience.
               </p>
-              <a href="https://www.kalinkamikel.com/" target="_blank"
-                >kalinkamikel.com</a
-              >
+              <a href="https://www.kalinkamikel.com/" target="_blank">
+                kalinkamikel.com
+              </a>
             </div>
           </div>
-          <div class="slide-4">
+          <div class="swiper-slide">
             <img
               src="assets/img/creatives-studio-domus.png"
-              alt="CEO at Sudio Domus"
-              loading="lazy"
+              alt="CEO at Studio Domus"
             />
             <div class="overlay-4">
               <h4 data-i18n="creatives.slider.domus.title">STUDIO DOMUS</h4>
@@ -1848,32 +1838,38 @@
                 construction documents, ensuring feasibility, buildability and
                 design integrity.
               </p>
-              <a href="https://www.studiodomus.com/" target="_blank"
-                >studiodomus.com</a
-              >
+              <a href="https://www.studiodomus.com/" target="_blank">
+                studiodomus.com
+              </a>
             </div>
           </div>
-          <div class="slide-4">
+          <div class="swiper-slide">
             <img
               src="assets/img/creatives-devas-paisaje.png"
               alt="CEO at Devas Paisaje"
-              loading="lazy"
             />
             <div class="overlay-4">
               <h4 data-i18n="creatives.slider.devas.title">
-                DEVAS DISEÑO Y PAISJAE
+                DEVAS DISEÑO Y PAISAJE
               </h4>
               <p data-i18n="creatives.slider.devas.text">
                 Devas crafted a landscape project that enhances the natural
                 setting, incorporating native vegetation and outdoor spaces
                 designed for beauty, use and sustainability.
               </p>
-              <a href="https://devaspaisaje.com/" target="_blank"
-                >devaspaisaje.com</a
-              >
+              <a href="https://devaspaisaje.com/" target="_blank">
+                devaspaisaje.com
+              </a>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Bullets y flechas -->
+      <div class="custom-nav">
+        <button class="custom-prev creatives-prev">◀</button>
+        <!-- <div class="swiper-pagination views-pagination"></div> -->
+        <button class="custom-next creatives-next">▶</button>
       </div>
     </section>
 
@@ -2277,7 +2273,12 @@
             <a href="#" data-i18n="footer.terms">Terms of Use</a>
           </div>
           <div class="footer-col">
-            <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
+            <a
+              href="#privacy-content"
+              class="glightbox"
+              data-i18n="footer.privacy"
+              >Privacy Policy</a
+            >
           </div>
           <div class="footer-col contact-info">
             <div>
@@ -2315,6 +2316,147 @@
         </div>
       </div>
     </footer>
+
+    <!-- Modales Ocultos -->
+    <div id="privacy-content" class="glightbox-privacy" style="display: none">
+      <h2 class="privacy-title">Privacy Notice</h2>
+      <p>
+        Based on Articles 15, 16, and other applicable provisions of the Federal
+        Law on Protection of Personal Data Held by Private Parties (the "Law")
+        and its regulations, we inform you that PROMOTORA ESTRATEGIA URBANA,
+        S.A. DE C.V. (hereinafter "PEU"), with address at Av. Cordillera de los
+        Andes #120, Lomas de Chapultepec, Miguel Hidalgo, CDMX 11000, and
+        website www.estrategiaurbana.com.mx, is responsible for collecting,
+        using, and protecting Personal Data, in compliance with the principles
+        of legality, quality, consent, information, purpose, loyalty,
+        proportionality, and responsibility.
+      </p>
+      <p>
+        Personal Data is collected through sales offices, email, telephone,
+        databases, and the website, and is used exclusively for real estate
+        transactions.
+      </p>
+      <p>
+        We understand that the personal data of third parties (e.g., personal or
+        commercial references) that you provide us with have already been
+        authorized by their owner to be delivered and processed by us according
+        to this privacy notice.
+      </p>
+      <p>
+        The primary purposes for the Personal Data (the "Primary Purposes") are:
+        (a) to identify you as a client or interested party in our
+        products/services; (b) to understand your needs; (c) to contact you and
+        follow up on your interest in purchasing real estate; (d) to send you
+        information about our real estate projects; (e) to prepare documents,
+        contracts, agreements, invoices, receipts, and documentation related to
+        the acquisition of private units of the projects advertised on our
+        website; (f) to handle complaints and clarifications; (h) to evaluate
+        quality and/or sales follow-up; (i) to store data; and (j) to comply
+        with terms and conditions established with you; (k) to check credit
+        history; (l) to process insurance claims and obligations with clients,
+        including acquiring a policy; (m) to fulfill tax obligations, such as
+        issuing invoices; (n) to manage collections; (ñ) to comply with various
+        authorities' requirements; (o) to conduct marketing activities,
+        advertising, and market behavior analysis.
+      </p>
+      <p>
+        The secondary purposes for Personal Data (the "Secondary Purposes") are:
+        (a) to inform you about new developments and promotions of our various
+        real estate projects.
+      </p>
+      <p>
+        The confidentiality of Personal Data is guaranteed and protected by
+        administrative, technical, and physical security measures to prevent
+        damage, loss, alteration, destruction, misuse, unauthorized access, or
+        disclosure. For example, Personal Data is stored in an internal database
+        managed through periodically changing access keys, restricted to
+        authorized personnel, and governed by confidentiality agreements.
+      </p>
+      <p>
+        You have the right to access, rectify, cancel, or oppose the processing
+        of your Personal Data (collectively known as "ARCO Rights"). To do so,
+        you or your legal representative must submit a written request for the
+        exercise of ARCO Rights addressed to the PEU customer service department
+        responsible for Personal Data protection, located at the aforementioned
+        address, or communicate via email with the PEU customer service
+        department at info@estrategiaurbana.com.mx ("Request"); in both cases,
+        you must receive acknowledgment of receipt for PEU to be bound. The
+        Request should include the following information: (a) your name and
+        surname and that of your representative, if applicable; (b) email
+        address for notifications; (c) a simple copy of your official photo ID
+        or that of your representative, if applicable; (d) clear and precise
+        description of the Personal Data for which you seek to exercise any of
+        the ARCO Rights; (f) any element or document that facilitates the
+        location of your Personal Data; and (g) your or your representative's
+        signature.
+      </p>
+      <p>
+        In case of requesting the exercise of the right to: (a) Rectification,
+        you must indicate the modifications to be made and provide the
+        documentation supporting the request; and (b) Access, PEU will provide
+        the Personal Data via email and/or by appointment at the sales office
+        and/or administrative offices, at PEU's choice.
+      </p>
+      <p>
+        Within a maximum period of 5 business days from the acknowledgment of
+        receipt of the Request, the request must be addressed and you will be
+        informed of its acceptance or rejection via a notice sent to the email
+        provided for notifications. If your Request is accepted, PEU must
+        fulfill it within 15 business days following receipt via email of the
+        acceptance of your Request.
+      </p>
+      <p>
+        Additionally, to the procedure for exercising ARCO Rights, you have the
+        right, concerning Secondary Purposes, to: (a) revoke or express your
+        refusal for the processing of your Personal Data; and/or (b) be included
+        in PEU's "Exclusion List," which limits the use and disclosure of
+        Personal Data. To do so, you must send a request to revoke or be
+        excluded, which should include: (a) your name and surname; and (b) email
+        address to respond to your request. This request should be addressed to
+        the PEU customer service department at info@estrategiaurbana.com.mx,
+        with acknowledgment of receipt required for PEU to be bound. The
+        acknowledgment of receipt includes confirmation of revocation and/or
+        inclusion in the "Exclusion List." PEU has a maximum response time of 5
+        business days.
+      </p>
+      <p>
+        All documentation must be sent in readable and complete PDF format for
+        PEU to address the Request.
+      </p>
+      <p>
+        If you believe your personal data protection rights have been violated
+        by PEU or presume there is any violation of the Law in the processing of
+        your personal data, you may file a complaint or report with the Federal
+        Institute of Access to Information and Data Protection (IFAI) at
+        www.ifai.gob.mx within 15 days of receiving PEU's response or after the
+        20-day period from the acknowledgment of receipt of the Request has
+        elapsed.
+      </p>
+      <p>
+        PEU is a real estate marketing and sales company. Therefore, Personal
+        Data may be transferred to subsidiaries, affiliates, parent companies,
+        co-owners, business partners, and/or third parties, all in the real
+        estate sector, domestically or internationally, for the same purposes
+        mentioned, especially for real estate marketing. It may also be
+        transferred to the following entities: authorized financial
+        institutions, public or private, including INFONAVIT; notaries; property
+        managers; appraisers; and any other necessary parties to fulfill the
+        purposes for which you contacted us.
+      </p>
+      <p>
+        The information you provide to social networks and its management is not
+        our responsibility, so you should review each network's Privacy Notice.
+        Therefore, we commit to not transferring your information to
+        unauthorized third parties or those unrelated to PEU, except as stated
+        in Article 37 of the Federal Law on Protection of Personal Data Held by
+        Private Parties.
+      </p>
+      <p>
+        PEU reserves the right to modify this security and confidentiality
+        policy, so we recommend you periodically review this policy to be aware
+        of updates and new ways we protect your data.
+      </p>
+    </div>
   </body>
 
   <!-- Calendly Js -->
@@ -2331,7 +2473,10 @@
   <script src="js/maps-optimized.js"></script>
 
   <!-- GLightbox JS -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- Modulos JS-->
   <script type="module" src="js/app.js" defer></script>

@@ -3,3 +3,6 @@ recursos/
 
 #video pesado
 assets/vid/TheWavve360.mp4
+
+#variables de entorno
+.env

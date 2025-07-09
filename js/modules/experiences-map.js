@@ -25,6 +25,14 @@ export function setupExperiencesMap() {
         if (label) label.classList.add('active');
 
         zoomTo(x, y);
+
+        const experiencesSection = document.getElementById('experiences');
+        if (window.innerWidth < 768 && experiencesSection) {
+          experiencesSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
       }
     });
   });
