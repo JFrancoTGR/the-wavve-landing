@@ -1053,7 +1053,6 @@ path {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
   width: 100%;
   overflow: hidden;
 }
@@ -1116,7 +1115,7 @@ path {
 
 .rest-beach {
   width: 100dvw;
-  margin-top: 55px
+  margin-top: 20px;
 }
 
 .rest-image-container img {
@@ -1796,11 +1795,16 @@ textarea::placeholder {
 }
 
 /* Privacy Notice */
-#privacy-content {
-  background-color: var(--bg-color);
+.glightbox-privacy, .glightbox-terms {
+  display: none;
 }
 
-.privacy-title {
+#privacy-content, #terms-content {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}
+
+.privacy-title, .terms-title {
   text-align: center;
   color: var(--primary-color);
   font-size: 24px;

@@ -6,7 +6,7 @@ export const translations = {
     'nav.invest': 'Why to Invest',
     'nav.construction': 'Construction',
     'nav.faqs': 'FAQs',
-    'cta.schedule': 'Schedule a Call',
+    'cta.schedule': 'Get in touch',
     'hero.title': 'INTRODUCING PHASE II: SUNSET TOWER',
     'hero.subtitle': 'INVEST NOW',
     'transition.line1':
@@ -257,7 +257,7 @@ export const translations = {
     'nav.invest': 'Por qué invertir',
     'nav.construction': 'Construcción',
     'nav.faqs': 'FAQs',
-    'cta.schedule': 'Agenda una Llamada',
+    'cta.schedule': 'Contáctanos',
     'hero.title': 'LANZAMIENTO DE FASE II: TORRE SUNSET',
     'hero.subtitle': 'INVIERTE AHORA',
     'transition.line1': 'El desarrollo frente al mar más vendido de la región',

@@ -86,19 +86,4 @@ export function initSlidersAndLightbox() {
 
   // forzar init para primer caption
   viewsSwiper.init();
-
-  // Experiences
-  const experiencesLightbox = GLightbox({
-    selector: '[data-glightbox="gallery-experiences"]',
-  });
-
-  // Residences
-  const residencesLightbox = GLightbox({
-    selector: '[data-glightbox="gallery-residences"]',
-  });
-
-  // Views
-  const viewsLightbox = GLightbox({
-    selector: '[data-glightbox="gallery-views"]',
-  });
 }
