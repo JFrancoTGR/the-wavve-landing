@@ -3,7 +3,36 @@
 header('Content-Type: application/json');
 
 $input = json_decode(file_get_contents('php://input'), true);
-// file_put_contents('log.txt', print_r($input, true));
+
+if( !isset($input['g-recaptcha-response'])) {
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Sin token de reCAPTCHA',
+    ]);
+    exit;
+}
+
+$recaptchaSecret = 'API_KEY';
+$recaptchaToken = $input['g-recaptcha-response'];
+
+$verifyResponse = file_get_contents(
+    "https://www.google.com/recaptcha/api/siteverify?secret={$recaptchaSecret}&response={$recaptchaToken}"
+);
+
+$recaptchaData = json_decode($verifyResponse, true);
+
+if (
+    !$recaptchaData['sucess'] ||
+    $recaptchaData['action'] !== 'submit'
+){
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Verificación de reCAPTCHA fallida.',
+    ]);
+    exit;
+}
+
+file_put_contents('recaptcha_debug_log', print_r($recaptchaData, true));
 
 if (
     ! $input ||

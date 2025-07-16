@@ -2270,12 +2270,9 @@
             >
           </div> -->
           <div class="footer-col">
-            <a 
-            href="#terms-content" 
-            class="glightbox" 
-            data-i18n="footer.terms">
-            Terms of Use
-          </a>
+            <a href="#terms-content" class="glightbox" data-i18n="footer.terms">
+              Terms of Use
+            </a>
           </div>
           <div class="footer-col">
             <a
@@ -2521,13 +2518,16 @@
         We reserve the right to update these Terms of Use at any time. We
         encourage you to review this page periodically.
       </p>
-      <h4>7. Contact</h>
+      <h4>7. Contact</h4>
       <p>
         If you have any questions regarding these Terms of Use or how we handle
         your personal data, please contact us at:
         <a href="mailto:info@thewavvebaja.com">info@thewavvebaja.com</a>
       </p>
     </div>
+
+    <!-- Div Oculto Recaptcha -->
+    <div id="recaptcha-container" style="display: none"></div>
   </body>
 
   <!-- Calendly Js -->
@@ -2535,6 +2535,13 @@
     src="https://assets.calendly.com/assets/external/widget.js"
     type="text/javascript"
     async
+  ></script>
+
+  <!-- reCAPTCHA -->
+  <script
+    src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit"
+    async
+    defer
   ></script>
 
   <!-- Map Dependencies -->
