@@ -58,5 +58,5 @@ window.addEventListener('load', () => {
 
   import('./modules/global-lightbox.js')
     .then(({ setupGlobalLightboxes }) => setupGlobalLightboxes())
-    .catch(consloe.error);
+    .catch(console.error);
 });

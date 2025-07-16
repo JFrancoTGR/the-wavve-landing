@@ -1657,6 +1657,26 @@ textarea::placeholder {
   color: var(--primary-color);
 }
 
+.spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5em;
+  border: 2px solid transparent;
+  border-top-color: white;
+  border-right-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 /* ROOFTOP SECTION */
 .rooftop-section-continer {
   text-align: center;

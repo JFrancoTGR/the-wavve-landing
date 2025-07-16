@@ -230,6 +230,7 @@ export const translations = {
     'cm.sms': 'SMS/IMESSAGE',
     'cm.whats': 'WHATSAPP',
     'form.send.button': 'Send',
+    'form.sending.button': 'Sending...',
     'rooftop.title': 'ALREADY PART OF THE WAVVE?',
     'rooftop-subtilte': 'Host your event at the Showroom Rooftop',
     'rooftop.info':
@@ -484,6 +485,7 @@ export const translations = {
     'cm.sms': 'SMS/IMESSAGE',
     'cm.whats': 'WHATSAPP',
     'form.send.button': 'Enviar',
+    'form.sending.button': 'Enviando...',
     'contact.method': 'MÉTODO DE CONTACTO',
     'rooftop.title': '¿YA ERES PARTE DE THE WAVVE?',
     'rooftop-subtilte': 'Organiza tu próximo evento en el Rooftop del Showroom',

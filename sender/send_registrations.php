@@ -12,10 +12,12 @@ if (
     empty($input['phone']) ||
     empty($input['contact_method'])
 ) {echo json_encode([
-    'stauts'  => 'error',
+    'status'  => 'error',
     'message' => 'Problemas con el envío.',
 ]);
     exit;}
+
+// ---------- Envío a Zapier ----------
 
 $zapier_webhook_url = 'https://hooks.zapier.com/hooks/catch/4924950/uok7dbz/';
 
@@ -46,12 +48,50 @@ $http_code  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $curl_error = curl_error($ch);
 curl_close($ch);
 
-if ($http_code === 200) {
+// ----------- Registro en Klaviyo con API --------------
+
+$klaviyo_api_key = 'API_KEY';
+$klaviyo_url = "https://a.klaviyo.com/api/profiles/";
+
+$klaviyo_data = [
+    'data' => [
+        'type' => 'profile',
+        'attributes' => [
+            'email'       => $input['email'],
+            'first_name'  => $input['name'],
+            // 'phone_number' => $input['phone'], // opcional, debe estar en formato E.164 si lo usas
+            // puedes agregar otros atributos estándar si lo deseas
+        ]
+    ]
+];
+
+$headers = [
+    'Content-Type: application/json',
+    'revision: 2023-02-22',
+    'Authorization: Klaviyo-API-Key ' . $klaviyo_api_key
+];
+
+$ch = curl_init($klaviyo_url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($klaviyo_data));
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+$klaviyo_response = curl_exec($ch);
+$klaviyo_http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$klaviyo_error = curl_error($ch);
+curl_close($ch);
+
+// Opcional: registro en archivo de log
+file_put_contents('klaviyo_response_log.txt', $klaviyo_response . "\n", FILE_APPEND);
+
+if ($http_code === 200 || ($klaviyo_http_code === 200 || $klaviyo_http_code === 201)) {
     echo json_encode(['status' => 'success']);
 } else {
     error_log("error Zapier: $curl_error / HTTP $http_code / Reponse: $response");
+    error_log("Klaviyo error: $klaviyo_error / HTTP $klaviyo_http_code / Response: $klaviyo_response");
     echo json_encode([
         'status'  => 'error',
-        'message' => 'Error al enviar al webhook',
+        'message' => 'Error al enviar los datos hacia al menos alguno de los destinos.',
     ]);
 }
